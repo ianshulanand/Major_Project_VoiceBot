@@ -13,7 +13,6 @@ from .utils import log_error
 from .jokes import get_joke
 from .news import get_news
 from .reminder import set_reminder
-#from .music import play_music_from_youtube
 from .translate import translate_text
 from .google_search import google_search
 from .wikipedia_search import wikipedia_search
@@ -139,9 +138,6 @@ async def handle_command(command):
                 return "Please specify a time for the reminder using 'at'. For example, 'remind me at 15:30'."
         except Exception as e:
             return f"Error setting reminder: {e}"
-    
-    elif "play music" in command:
-        #play_music_from_youtube("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
     
     elif "translate" in command:
         #text_to_translate = command.split("translate")[-1].strip()
