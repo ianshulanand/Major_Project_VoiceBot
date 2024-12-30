@@ -7,12 +7,16 @@ from bot.bot import listen_command, handle_command, speak_text
 # Set up logging to capture any errors
 logging.basicConfig(level=logging.INFO)
 
+if "audio_file" not in st.session_state:
+    st.session_state.audio_file = None
+    
 # Function to start listening and handle the command
 async def start_bot():
 
     audio_file = st.audio_input("Speak your command here.")
     if audio_file:
         st.session_state.audio_file = audio_file
+        
     command = listen_command(audio_file)  # Listen for the command
     
     if command:
