@@ -14,6 +14,7 @@ if "audio_file" not in st.session_state:
 async def start_bot():
 
     audio_file = st.audio_input("Speak your command here.")
+    st.write(audio_file)
     if audio_file:
         st.session_state.audio_file = audio_file
         
