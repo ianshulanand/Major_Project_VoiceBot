@@ -30,16 +30,26 @@ logging.getLogger('comtypes.client._code_cache').setLevel(logging.ERROR)
 speech_lock = threading.Lock()
 
 # Function to listen to the microphone (single query)
-def listen_command():
-    recognizer = sr.Recognizer()
+def listen_command(uploaded_audio):
+    #recognizer = sr.Recognizer()
 
-    with sr.Microphone() as source:
-        logging.info("Listening... Please speak your query.")
-        recognizer.adjust_for_ambient_noise(source)  # Adjust for ambient noise
+    # Ensure the user uploads an audio file (WAV/MP3)
+    if uploaded_audio is not None:
+        st.write("Audio is Recorded.")
+        audio_bytes = audio_file.getvalue()
+        with open("temp_audio.wav", "wb") as file:
+            file.write(audio_bytes)
+        with AudioFile("temp_audio.wav") as source:
+            audio = recognizer.record(source)
+
+    #with sr.Microphone() as source:
+        #logging.info("Listening... Please speak your query.")
+        #recognizer.adjust_for_ambient_noise(source)  # Adjust for ambient noise
 
         try:
             # Listen for the first phrase and stop listening after that
-            audio = recognizer.listen(source)
+            #audio = recognizer.listen(source)
+            
             command = recognizer.recognize_google(audio)
             logging.info(f"Command Received: {command}")
             return command
