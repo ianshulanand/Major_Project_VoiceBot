@@ -13,3 +13,4 @@ wikipedia
 streamlit
 yt-dlp
 google-cloud-texttospeech
+gTTS
