@@ -61,7 +61,9 @@ def listen_command(uploaded_audio):
         except sr.RequestError as e:
             logging.error(f"Error with the speech recognition service: {e}")
             return None
-        
+    else:
+        st.write("No audio input is found.")
+        return ""    
 # Function to speak text
 def speak_text(text):
     # Run the engine in a separate thread
