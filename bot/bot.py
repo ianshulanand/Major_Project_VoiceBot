@@ -1,11 +1,12 @@
 import json
 import os
 import speech_recognition as sr
-import pyttsx3
+#import pyttsx3
 #import asyncio
 import threading
 import logging
 
+from gtts import gTTS
 from .weather import get_weather
 from .sentiment import analyze_sentiment
 from .personalization import get_user_name, set_user_name
@@ -23,7 +24,7 @@ logging.getLogger('comtypes.client._code_cache').setLevel(logging.ERROR)
 #recognizer = sr.Recognizer()
 
 # Initialize the text-to-speech engine
-engine = pyttsx3.init()
+#engine = pyttsx3.init()
 
 # Create a lock for thread safety when speaking
 speech_lock = threading.Lock()
@@ -56,8 +57,12 @@ def speak_text(text):
     # Run the engine in a separate thread
     def speak():
         with speech_lock:  # Ensure only one thread can speak at a time
-            engine.say(text)
-            engine.runAndWait()
+            #engine.say(text)
+            #engine.runAndWait()
+            tts = gTTS(text)
+            tts.save("output.mp3")
+            # Play the audio file in Streamlit
+            st.audio("output.mp3", format="audio/mp3")
 
     # To avoid the run loop already started error, run the speech synthesis in a separate thread
     threading.Thread(target=speak).start()
