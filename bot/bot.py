@@ -59,10 +59,17 @@ def speak_text(text):
         with speech_lock:  # Ensure only one thread can speak at a time
             #engine.say(text)
             #engine.runAndWait()
+            
+            # Use gTTS to convert text to speech and save as an audio file
             tts = gTTS(text)
-            tts.save("output.mp3")
+            audio_path = "output.mp3"
+            tts.save(audio_path)
+            
             # Play the audio file in Streamlit
-            st.audio("output.mp3", format="audio/mp3")
+            st.audio(audio_path, format="audio/mp3")
+
+            # Optionally, you can delete the file after playing to avoid accumulation of files
+            os.remove(audio_path)
 
     # To avoid the run loop already started error, run the speech synthesis in a separate thread
     threading.Thread(target=speak).start()
