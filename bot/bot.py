@@ -8,6 +8,7 @@ import threading
 import logging
 
 from gtts import gTTS
+from speech_recognition import Recognizer, AudioFile
 from .weather import get_weather
 from .sentiment import analyze_sentiment
 from .personalization import get_user_name, set_user_name
