@@ -11,4 +11,4 @@ datetime
 wikipedia
 streamlit
 yt-dlp
-pyaudio
+pyaudio==0.2.14
