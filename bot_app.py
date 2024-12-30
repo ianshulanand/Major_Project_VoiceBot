@@ -9,7 +9,11 @@ logging.basicConfig(level=logging.INFO)
 
 # Function to start listening and handle the command
 async def start_bot():
-    command = listen_command()  # Listen for the command
+
+    audio_file = st.audio_input("Speak your command here.")
+    if audio_file:
+        st.session_state.audio_file = audio_file
+    command = listen_command(audio_file)  # Listen for the command
     
     if command:
         # Process the command
