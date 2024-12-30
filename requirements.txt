@@ -1,5 +1,4 @@
 ﻿SpeechRecognition
-pyttsx3
 pyaudio==0.2.14
 requests
 textblob
