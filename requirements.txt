@@ -1,5 +1,6 @@
 ﻿SpeechRecognition
 pyttsx3
+pyaudio==0.2.14
 requests
 textblob
 nltk
@@ -11,4 +12,4 @@ datetime
 wikipedia
 streamlit
 yt-dlp
-pyaudio==0.2.14
+google-cloud-texttospeech
