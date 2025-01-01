@@ -1,0 +1,10 @@
+# This file lists system-level dependencies that are required for the project.
+# These packages are often installed using a package manager like 'apt' (on Ubuntu/Debian-based systems).
+
+# The following package is required for handling audio input/output in Python.
+# 'portaudio19-dev' provides the development files for PortAudio, a library used for audio I/O.
+portaudio19-dev
+
+# The 'python3-all-dev' package installs development headers for all versions of Python 3.
+# This is useful for compiling and installing Python extensions that need access to the Python interpreter.
+python3-all-dev

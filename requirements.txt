@@ -1,0 +1,8 @@
+streamlit==1.41.1         # Core framework for the web app
+speechrecognition==3.12.0  # For speech recognition functionality
+pyaudio==0.2.14            # Required for capturing microphone input (used with SpeechRecognition)
+gtts==2.5.4                # Text-to-speech conversion
+wikipedia==1.4.0           # Wikipedia search functionality
+nltk==3.9.1                # Natural Language Toolkit for text processing
+pyjokes==0.8.3             # For providing jokes
+webbrowser                 # Built-in Python module to open web pages (Optionsl - to include in requirements.txt)

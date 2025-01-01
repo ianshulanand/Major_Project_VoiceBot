@@ -1,0 +1,6 @@
+# This is the runtime.txt file used to specify the Python version
+# Specify the exact Python version or a version range supported by the platform
+
+# The following line specifies that the app should use any patch version of Python 3.9
+# e.g., Python 3.9.1, 3.9.6, etc. (on platforms like Streamlit, Heroku)
+python-3.9.*
